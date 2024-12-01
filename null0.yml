@@ -1,0 +1,37 @@
+version: v1-draft
+
+exports:
+  load:
+    description: Called when your cart is loaded
+  
+  unload:
+    description: Called when your cart is unloaded
+  
+  update:
+    description: Called each frame
+    input:
+      contentType: application/json
+      $ref: "#/components/schemas/InputUpdate"
+
+imports:
+  clear:
+    description: Clear the screen with a color
+    input:
+      contentType: application/json
+      $ref: "#/components/schemas/InputClear"
+
+components:
+  schemas:
+    InputClear:
+      description: Input params for clear() import
+      properties:
+        color:
+          type: integer
+          format: int32
+    
+    InputUpdate:
+      description: Input params for update() export
+      properties:
+        time:
+          type: number
+          format: double
